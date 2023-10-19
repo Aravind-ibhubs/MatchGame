@@ -258,7 +258,7 @@ class Home extends Component {
     activePage: tabsList[0].tabId,
     gamePictureUrl: imagesList[0].imageUrl,
     gamePictureId: imagesList[0].id,
-    timeInSec: 60,
+    timeInSec: 150,
     isGameEnded: false,
   }
 
@@ -288,6 +288,7 @@ class Home extends Component {
     this.refreshGame()
 
     if (gamePictureId === pictureId) {
+      console.log(gamePictureId, pictureId)
       const newArray = imagesList[Math.floor(Math.random() * imagesList.length)]
       this.setState(prevState => ({
         score: prevState.score + 1,
@@ -301,7 +302,7 @@ class Home extends Component {
   }
 
   refreshGame = () => {
-    this.setState({isGameEnded: false, score: 0, timeInSec: 60})
+    this.setState({isGameEnded: false, score: 0, timeInSec: 150})
     this.timerId = setInterval(this.decrementSecond, 1000)
   }
 
